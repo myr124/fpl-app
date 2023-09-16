@@ -37,7 +37,7 @@ export default function IndexPage() {
           {/* Starting News Sections with cards that show article title and thumbnail - Jordan */}
           News
         </h2>
-        <div className="flex max-w-[980px] flex-col items-start gap-2">
+        <div className="flex w-full flex-col items-start gap-2">
           <PlayerNews />
         </div>
       </div>

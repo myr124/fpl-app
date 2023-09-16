@@ -1,81 +1,45 @@
+import { Position } from "@/types/fpl";
+
 // import Image from "next/image";
-import {
-  LineChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Line,
-  Legend,
-  Tooltip,
-} from "recharts";
-export default function PlayerInfo({ params }: any) {
-  const { id } = params;
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+export default async function PlayerInfo({ params }: any) {
+  const { id: _id } = params;
+  const id = Number(_id);
+  // console.log(id);
+
+  const fplApiUrl = `https://fantasy.premierleague.com/api/bootstrap-static/`;
+  const data: any = await (await fetch(fplApiUrl)).json();
+  const players: any[] = data.elements;
+  // console.log(players);
+  // let player: any = players.find((value) => value.id == id);
+  let player: any | undefined = undefined;
+  for (let i = 0; i < players.length; i++) {
+    // console.log(players[i].id);
+    if (players[i].id == id) {
+      player = players[i];
+    }
+  }
+  if (!player) return <></>;
+  const position = player.element_type as Position;
+  // console.log(player);
+
   return (
     <>
-      <img
-        src={`https://resources.premierleague.com/premierleague/photos/players/110x140/p${id}.png`}
-        alt="Photo for player"
-        width={220}
-        height={280}
-      />
-      <LineChart
-        width={730}
-        height={250}
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-      >
-        {/* <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-      </LineChart>
+      <div className="flex flex-row h-72 items-start gap-2">
+        <div className="playerImageContainer">
+          <img
+            className="playerImage"
+            src={`https://resources.premierleague.com/premierleague/photos/players/110x140/p${player.code}.png`}
+            alt="Photo for player"
+            width={220}
+            height={280}
+          />
+        </div>
+        <div className="flex grow h-full flex-row justify-start items-center gap-2">
+          <h1 className="text-24xl font-bold md:text-6xl">
+            {player.first_name} {player.second_name}
+          </h1>
+        </div>
+      </div>
     </>
   );
 }

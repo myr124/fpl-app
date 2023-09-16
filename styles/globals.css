@@ -2,13 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+--fandango: hsla(313, 52%, 42%, 1);
+--timberwolf: hsla(353, 12%, 87%, 1);
+--platinum: hsla(158, 12%, 87%, 1);
+--ash-gray: hsla(156, 3%, 65%, 1);
+--white: hsla(0, 0%, 100%, 1);
+*/
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 313 51% 41%;
+    --foreground: 352 12% 87%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 352 12% 87%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
@@ -16,8 +24,10 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 353, 12%, 87%;
+    --card-foreground: var(--background);
+    --card-news-foreground: 1 80% 71%;
+    
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -34,10 +44,12 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --line: 0.3em solid white;
   }
 
   .dark {
-    --background: 224 71% 4%;
+    --background: 295 100% 11%;
     --foreground: 213 31% 91%;
 
     --muted: 223 47% 11%;
@@ -54,6 +66,8 @@
 
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
+    --card-news-foreground: 1 80% 71%;
+    
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
@@ -75,7 +89,6 @@
     @apply border-border;
   }
   body {
-    --line: 0.3em solid white;
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
@@ -87,6 +100,7 @@
   height: 80em;
   background-color: green;
   font-size: 5px;
+  /* padding: 5em; */
 
 }
 
@@ -98,6 +112,7 @@
   border: var(--line);
   position: relative;
   overflow: hidden;
+  /*角球线隐藏*/
   width: inherit;
   height: inherit;
   z-index: 1;
@@ -191,9 +206,52 @@
   bottom:calc(-5em / 2 - 0.3em);
 }
 
+.playerImageContainer {
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* White circle background */
+  border-radius: 15%; /* Creates a circle */
+  overflow: hidden; /* Hides overflow content outside the circle */
+}
+
+.playerImage {
+  object-fit: cover;
+}
+
+/* .corner-arc-top {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border: 0.3em solid white;
+  border-radius: 0 0 100px 0;
+  position: absolute;
+  top: -5%;
+  left:-5%;
+  position: absolute;
+}
+
+.corner-arc-bottom {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border: 0.3em solid white;
+  border-radius: 0 100px 0 0;
+  position: absolute;
+  top: 880px;
+  left: -20px;
+  position: absolute;
+} */
+
 .pitch-right {
   position: absolute;
   top: 0px;
   left: 50%;
   transform: rotateY(180deg);
 }
+
+.circular-landscape { display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; } .circular-landscape img { width: auto; height: 100%; margin-left: -50px; }

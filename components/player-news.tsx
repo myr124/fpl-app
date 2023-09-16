@@ -10,12 +10,12 @@ import {
 } from "@/components/ui/card";
 
 const PlayerNews = async () => {
-  //   const [newsData, setNewsData] = useState<any[]>([]);
+  // commented out so we don't go over 100
   //   const apiUrl = `https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=${process.env.NEWS_API_KEY}`;
-  // "https://sportnewsapi.com/api/v1/category?section=general_PL&items=3&page=1&token=b67ya21rmshxy11kngsjasi2tkhcu2z2txqt8t5y";
-  // https://sportnewsapi.com/documentation
   //   const data: any = await (await fetch(apiUrl)).json();
+  // uncomment above and comment this line below
   const data: any = {};
+
   if (data.status !== "ok") return <></>;
 
   // const data = await (await fetch("https://sportnewsapi.com/api/v1/category?section=general_PL&items=3&page=1&token=b67ya21rmshxy11kngsjasi2tkhcu2z2txqt8t5y")).json();
@@ -41,7 +41,7 @@ const PlayerNews = async () => {
   return (
     <div className="grid grid-cols-3 grid-rows-3 items-center">
       {data.articles.map((item: any, index: number) => (
-        <Card key={index} className="mx-2">
+        <Card key={index} className="mx-2 my-2">
           <CardHeader>
             <CardTitle>
               <a href={item.url}>{item.title}</a>
