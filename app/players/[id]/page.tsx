@@ -1,7 +1,6 @@
-import Image from "next/image";
+// import Image from "next/image";
 export default function PlayerInfo({ params }: any) {
   const { id } = params;
-  // console.log(id);
   return (
     <>
       <img
