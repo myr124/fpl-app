@@ -10,16 +10,21 @@ export const siteConfig = {
       href: "/",
     },
     {
-        title: "Dream Team",
-        href: "/dreamteam"
-    },
+      title: "Rules",
+      href:"/rules"
+    }, 
+   
     {
         title: "Players",
         href: "/players"
-    }
+    },
+    {
+      title: "Dream Team",
+      href: "/dreamteam"
+    },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
+    // twitter: "https://twitter.com/shadcn",
     github: "https://github.com/myr124/fpl-app",
     docs: "https://ui.shadcn.com",
     premierleague: "https://www.premierleague.com/"

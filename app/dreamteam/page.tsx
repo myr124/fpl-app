@@ -7,6 +7,7 @@ import {
   GoalkeeperRating,
   getPlayerPic,
 } from "@/lib/fpl";
+import PlayerCircle from "@/components/player-circle";
 
 const page = async () => {
   const fplApiUrl = `https://fantasy.premierleague.com/api/bootstrap-static/`;
@@ -77,6 +78,27 @@ const page = async () => {
   // });
   goalkeepers = goalkeepers.slice(0, 2);
 
+  const forwardPositions: { top: string; left: string }[] = [
+    { top: "42.5%", left: `${100 - 75}%` },
+    { top: "9.5%", left: `${100 - 51.5}%` },
+    { top: "74.5%", left: `${100 - 51.5}%` },
+  ];
+
+  const midfielderPositions: { top: string; left: string }[] = [
+    { top: "42.5%", left: `${90}%` },
+    { top: "9.5%", left: `${90}%` },
+    { top: "74.5%", left: `${90}%` },
+  ];
+  const defenderPositions: { top: string; left: string }[] = [
+    { top: "12.5%", left: `${20}%` },
+    { top: "32.5%", left: `${20}%` },
+    { top: "52.5%", left: `${20}%` },
+    { top: "72.5%", left: "20%" },
+  ];
+  const goalkeeperPositions: { top: string; left: string }[] = [
+    { top: "42.5%", left: `${2}%` },
+  ];
+
   return (
     <>
       {/* <div>
@@ -109,41 +131,21 @@ const page = async () => {
         <div className="pitch-container">
           <div className="pitch-field">
             <div className="pitch-left">
+              {[0].map((i) => (
+                <PlayerCircle
+                  player={goalkeepers[i]}
+                  top={goalkeeperPositions[i].top}
+                  left={goalkeeperPositions[i].left}
+                />
+              ))}
+              {[0, 1, 2, 3].map((i) => (
+                <PlayerCircle
+                  player={defenders[i]}
+                  top={defenderPositions[i].top}
+                  left={defenderPositions[i].left}
+                />
+              ))}
               <span className="pitch-halfway-line"></span>
-              <span
-                className="forward-1"
-                style={{
-                  position: "absolute",
-                  left: `45%`,
-                  top: "32.5em",
-                  zIndex: 10,
-                }}
-              >
-                <img
-                  src={getPlayerPic(forwards[0])}
-                  alt=""
-                  width={"60em"}
-                  height="60em"
-                  className="circular-landscape bg-white"
-                />
-              </span>
-              <span
-                className="forward-2"
-                style={{
-                  position: "absolute",
-                  left: `35%`,
-                  top: "12.5em",
-                  zIndex: 10,
-                }}
-              >
-                <img
-                  src={getPlayerPic(forwards[1])}
-                  alt=""
-                  width={"60em"}
-                  height="60em"
-                  className="bg-white rounded-[100%]"
-                />
-              </span>
               <span className="pitch-centre-circle"></span>
               <span className="pitch-centre-mark"></span>
               <span className="pitch-penalty-area"></span>
@@ -153,15 +155,29 @@ const page = async () => {
               <span className="pitch-corner-arc"></span>
             </div>
             <div className="pitch-right">
-              <span className="pitch-halfway-line"></span>
+              {[0, 1, 2].map((i) => (
+                <PlayerCircle
+                  player={forwards[i]}
+                  top={forwardPositions[i].top}
+                  left={forwardPositions[i].left}
+                />
+              ))}
+
+              <span className="pitch-halfway-line">
+                {[0, 1, 2].map((i) => (
+                  <PlayerCircle
+                    player={midfielders[i]}
+                    top={midfielderPositions[i].top}
+                    left={midfielderPositions[i].left}
+                  />
+                ))}
+              </span>
               <span className="pitch-centre-circle"></span>
               <span className="pitch-centre-mark"></span>
               <span className="pitch-penalty-area"></span>
               <span className="pitch-penalty-mark"></span>
               <span className="pitch-penalty-arc"></span>
-              <span className="pitch-goal-area">
-                <img src="" alt="" />
-              </span>
+              <span className="pitch-goal-area"></span>
               <span className="pitch-corner-arc"></span>
             </div>
           </div>

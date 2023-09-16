@@ -19,9 +19,13 @@ const player = ({ player }: Props) => {
     <Card className="mx-2 my-2">
       <CardHeader>
         <CardTitle>
-          <a href={`/players/${player.id}`}>{player.web_name}</a>
+          <a href={`/players/${player.id}`}>
+            {player.first_name} {player.second_name}
+          </a>
         </CardTitle>
-        <CardDescription>{player.news}</CardDescription>
+        <CardDescription className="fg-card-mutedfg">
+          {player.news}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div>
