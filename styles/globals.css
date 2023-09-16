@@ -75,7 +75,125 @@
     @apply border-border;
   }
   body {
+    --line: 0.3em solid white;
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+
+.pitch-container {
+  width: 120em;
+  height: 80em;
+  background-color: green;
+  font-size: 5px;
+
+}
+
+.pitch-container span {
+  display: block;
+}
+
+.pitch-field {
+  border: var(--line);
+  position: relative;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  z-index: 1;
+}
+
+.pitch-halfway-line {
+  width: 60em;
+  height: 80em;
+  border-right: var(--line);
+}
+
+.pitch-centre-circle,
+.pitch-penalty-arc {
+  width: 20em;
+  height: 20em;
+  border: var(--line);
+  border-radius: 50%;
+  position: absolute;
+  top: 30em;
+}
+
+.pitch-centre-circle {
+  left: calc((120em - 20em - 0.3em)/2);
+}
+
+.pitch-centre-mark {
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(80em / 2 - 1em);
+  left: calc(120em / 2 - 1em + 0.3em / 2);
+
+}
+
+.pitch-penalty-mark {
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(80em / 2 - 1em);
+  left: calc(12em - 2em / 2);
+}
+
+.pitch-penalty-area {
+  width: 18em;
+  height: 44em;
+  border: var(--line);
+  position: absolute;
+  top: calc((80em - 44em) / 2);
+  left: -0.3em;
+  background-color: green;
+}
+
+.pitch-penalty-arc {
+  left: calc(12em - 20em / 2);
+  z-index: -1;
+}
+
+.pitch-goal-area {
+  width: 6em;
+  height: 20em;
+  border: var(--line);
+  position: absolute;
+  top: calc((80em - 20em) / 2);
+  left: -0.3em;
+}
+
+.pitch-corner-arc{
+  border:1px solid red;
+}
+
+.pitch-corner-arc::after,
+.pitch-corner-arc::before{
+  content: '';
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  border: 0.3em solid white;
+  border-radius: 50%;
+  left:calc(-5em / 2 - 0.3em);
+}
+
+.pitch-corner-arc::before {
+  top:calc(-5em / 2 - 0.3em);
+}
+
+.pitch-corner-arc::after {
+  bottom:calc(-5em / 2 - 0.3em);
+}
+
+.pitch-right {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: rotateY(180deg);
 }
