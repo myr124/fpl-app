@@ -212,7 +212,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white; /* White circle background */
+  /* background-color: white; White circle background */
   border-radius: 15%; /* Creates a circle */
   overflow: hidden; /* Hides overflow content outside the circle */
 }

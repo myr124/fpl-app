@@ -82,7 +82,7 @@ export default async function PlayerInfo({ params }: any) {
             </CardDescription>
           </CardHeader>
         </div>
-        <div className="scoreContainer">
+        <div className="scoreContainer p-4">
           {player.element_type === Position.Forward && (
             <>{ForwardRating(player).toFixed(2)}</>
           )}
