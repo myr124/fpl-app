@@ -23,7 +23,7 @@ const player = ({ player }: Props) => {
             {player.first_name} {player.second_name}
           </a>
         </CardTitle>
-        <CardDescription className="fg-card-mutedfg">
+        <CardDescription className="injury-status font-bold">
           {player.news}
         </CardDescription>
       </CardHeader>
