@@ -9,7 +9,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="m-4">
+    <div className="m-10">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
           <AccordionTrigger>Create your team</AccordionTrigger>

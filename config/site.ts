@@ -22,10 +22,6 @@ export const siteConfig = {
       title: "Dream Team",
       href: "/dreamteam"
     },
-    {
-        title:"Mini Game",
-        href:"/minigame"
-    }
   ],
   links: {
     // twitter: "https://twitter.com/shadcn",

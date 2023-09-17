@@ -16,34 +16,38 @@ interface Props {
 
 const player = ({ player }: Props) => {
   return (
-    <Card className="mx-2 my-2">
-      <CardHeader>
-        <CardTitle>
-          <a href={`/players/${player.id}`}>
+    <a href={`/players/${player.id}`}>
+      <Card className="player-card mx-2 my-2 hover:scale-105">
+        <CardHeader>
+          <CardTitle className="font-bold">
             {player.first_name} {player.second_name}
-          </a>
-        </CardTitle>
-        <CardDescription className="injury-status font-bold">
-          {player.news}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div>
-          <div className="text-2xl">
-            {shortRepresentation(player.element_type as Position)}
-          </div>
-          <div className="w-full flex items-center">
+          </CardTitle>
+          <CardDescription className="injury-status font-bold">
+            {player.news}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="relative">
+            {/* Player image */}
             <img
               src={getPlayerPic(player)}
               alt="Photo for player"
               width={220}
               height={280}
-              className="items-center z-10 top-0 left-0 rounded-3xl"
+              className="rounded-3xl z-10 relative"
             />
+
+            {/* Position label */}
+            <div
+              className="absolute top-1/4 left-3/4 transform -translate-x-1/2 -translate-y-2/3 text-8xl font-bold z-0 drop-shadow-2xl hover:text-opacity-100"
+              style={{ opacity: "50%" }}
+            >
+              {shortRepresentation(player.element_type as Position)}
+            </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </a>
   );
 };
 

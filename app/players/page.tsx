@@ -25,7 +25,7 @@ export default async function PlayersPage() {
     <div className="flex flex-col items-start gap-2">
       <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center w-full">
         {players.map((player, i) => (
-          <Player player={player} />
+          <Player player={player} key={i} />
         ))}
       </div>
     </div>

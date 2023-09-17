@@ -31,6 +31,7 @@
     --card: 353, 12%, 87%;
     --card-foreground: 313 51% 41%;
     --card-news-foreground: 1 80% 71%;
+    --card-hover: 353, 12%, 84%;
     
 
     --primary: 222.2 47.4% 11.2%;
@@ -76,6 +77,7 @@
 
     --card-foreground: 213 31% 91%;
     --card-news-foreground: 1 80% 71%;
+    --card-hover: 295 100% 9%;
     
 
     --primary: 210 40% 98%;
@@ -211,6 +213,15 @@
 
 .pitch-corner-arc{
   border:1px solid red;
+}
+
+.player-card:hover {
+  background-color: hsl(var(--card-hover));
+  /* opacity: 10 */
+}
+
+.news-card:hover {
+  background-color: hsl(var(--card-hover));
 }
 
 .pitch-corner-arc::after,

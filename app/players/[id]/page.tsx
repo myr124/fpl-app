@@ -15,6 +15,8 @@ import {
   MidfielderRating,
 } from "@/lib/fpl";
 
+import RenderLineChart from "@/components/chart";
+
 export default async function PlayerInfo({ params }: any) {
   const { id: _id } = params;
   const id = Number(_id);
@@ -63,13 +65,14 @@ export default async function PlayerInfo({ params }: any) {
               )}
               {player.element_type === Position.Goalkeeper && (
                 <>
-                  Saves: {player.saves} | Clean Sheets: {player.clean_sheets}
+                  Saves: {player.saves} | Goals Allowed: {player.goals_conceded}{" "}
+                  | Clean Sheets: {player.clean_sheets}
                 </>
               )}
               {player.element_type === Position.Defender && (
                 <>
-                  Clean Sheets: {player.clean_sheets} | Total Points:{" "}
-                  {player.total_points}
+                  Goals Allowed: {player.goals_conceded} | Clean Sheets:{" "}
+                  {player.clean_sheets} | Total Points: {player.total_points}
                 </>
               )}
               {player.element_type === Position.Midfielder && (

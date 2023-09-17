@@ -1,5 +1,5 @@
 import { Position } from "@/types/fpl";
-import React from "react";
+import React, { Fragment } from "react";
 import {
   DefenderRating,
   ForwardRating,
@@ -127,58 +127,122 @@ const page = async () => {
           </>
         ))} */}
       {/* </div> */}
-      <div className="flex w-full h-full items-center justify-center mt-8 ">
-        <div className="pitch-container">
-          <div className="pitch-field">
-            <div className="pitch-left">
-              {[0].map((i) => (
-                <PlayerCircle
-                  player={goalkeepers[i]}
-                  top={goalkeeperPositions[i].top}
-                  left={goalkeeperPositions[i].left}
-                />
-              ))}
-              {[0, 1, 2, 3].map((i) => (
-                <PlayerCircle
-                  player={defenders[i]}
-                  top={defenderPositions[i].top}
-                  left={defenderPositions[i].left}
-                />
-              ))}
-              <span className="pitch-halfway-line"></span>
-              <span className="pitch-centre-circle"></span>
-              <span className="pitch-centre-mark"></span>
-              <span className="pitch-penalty-area"></span>
-              <span className="pitch-penalty-mark"></span>
-              <span className="pitch-penalty-arc"></span>
-              <span className="pitch-goal-area"></span>
-              <span className="pitch-corner-arc"></span>
+      <div>
+        <h1 className="text-4xl font-extrabold leading-tight tracking-tighter md:text-5xl m-8 ">
+          The FPL Dream Team
+          <br className="hidden sm:inline" />
+        </h1>
+      </div>
+      <div className="flex flex-row w-full h-full items-center justify-center mt-8">
+        <div className="mx-8 basis-1/2">
+          <p className="text-xl">
+            Here is your FPL Dream Team. We've calculated current best players
+            in each position for you using statistical analysis and weighted
+            formulas
+            <div className="grid grid-cols-2 grid-rows-2 gap-4 p-2">
+              <div className="flex flex-col justify-start items-center">
+                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                  FW:
+                </h1>
+                {forwards.map((forward, i) => (
+                  <Fragment key={i}>
+                    {forward.second_name}
+                    <br />
+                  </Fragment>
+                ))}
+              </div>
+              <div className="flex flex-col justify-start items-center">
+                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                  MD:
+                </h1>
+                {midfielders.map((midfielder, i) => (
+                  <Fragment key={i}>
+                    {midfielder.second_name}
+                    <br />
+                  </Fragment>
+                ))}
+              </div>
+              <div className="flex flex-col justify-start items-center">
+                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                  DF:
+                </h1>
+                {defenders.map((defender, i) => (
+                  <Fragment key={i}>
+                    {defender.second_name}
+                    <br />
+                  </Fragment>
+                ))}
+              </div>
+              <div className="flex flex-col justify-start items-center">
+                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                  GK:
+                </h1>
+                {goalkeepers.map((goalkeeper, i) => (
+                  <Fragment key={i}>
+                    {goalkeeper.second_name}
+                    <br />
+                  </Fragment>
+                ))}
+              </div>
             </div>
-            <div className="pitch-right">
-              {[0, 1, 2].map((i) => (
-                <PlayerCircle
-                  player={forwards[i]}
-                  top={forwardPositions[i].top}
-                  left={forwardPositions[i].left}
-                />
-              ))}
-
-              <span className="pitch-halfway-line">
-                {[0, 1, 2].map((i) => (
+          </p>
+        </div>
+        <div className="item-middle basis-1/2">
+          <div className="pitch-container">
+            <div className="pitch-field">
+              <div className="pitch-left">
+                {[0].map((i) => (
                   <PlayerCircle
-                    player={midfielders[i]}
-                    top={midfielderPositions[i].top}
-                    left={midfielderPositions[i].left}
+                    player={goalkeepers[i]}
+                    top={goalkeeperPositions[i].top}
+                    left={goalkeeperPositions[i].left}
+                    key={i}
                   />
                 ))}
-              </span>
-              <span className="pitch-centre-circle"></span>
-              <span className="pitch-centre-mark"></span>
-              <span className="pitch-penalty-area"></span>
-              <span className="pitch-penalty-mark"></span>
-              <span className="pitch-penalty-arc"></span>
-              <span className="pitch-goal-area"></span>
-              <span className="pitch-corner-arc"></span>
+                {[0, 1, 2, 3].map((i) => (
+                  <PlayerCircle
+                    key={i}
+                    player={defenders[i]}
+                    top={defenderPositions[i].top}
+                    left={defenderPositions[i].left}
+                  />
+                ))}
+                <span className="pitch-halfway-line"></span>
+                <span className="pitch-centre-circle"></span>
+                <span className="pitch-centre-mark"></span>
+                <span className="pitch-penalty-area"></span>
+                <span className="pitch-penalty-mark"></span>
+                <span className="pitch-penalty-arc"></span>
+                <span className="pitch-goal-area"></span>
+                <span className="pitch-corner-arc"></span>
+              </div>
+              <div className="pitch-right">
+                {[0, 1, 2].map((i) => (
+                  <PlayerCircle
+                    key={i}
+                    player={forwards[i]}
+                    top={forwardPositions[i].top}
+                    left={forwardPositions[i].left}
+                  />
+                ))}
+                <span className="pitch-halfway-line">
+                  {[0, 1, 2].map((i) => (
+                    <PlayerCircle
+                      key={i}
+                      player={midfielders[i]}
+                      top={midfielderPositions[i].top}
+                      left={midfielderPositions[i].left}
+                    />
+                  ))}
+                </span>
+                <span className="pitch-centre-circle"></span>
+                <span className="pitch-centre-mark"></span>
+                <span className="pitch-penalty-area"></span>
+                <span className="pitch-penalty-mark"></span>
+                <span className="pitch-penalty-arc"></span>
+                <span className="pitch-goal-area"></span>
+                <span className="pitch-corner-arc"></span>
+              </div>
             </div>
           </div>
         </div>
