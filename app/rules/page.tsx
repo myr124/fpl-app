@@ -54,9 +54,9 @@ const page = () => {
           <AccordionTrigger>Captain and Vice-Captain</AccordionTrigger>
           <AccordionContent>
             <p>
-              Select a captain and vice-captain for each Gameweek. The captain's
-              points are doubled, and if the captain doesn't play, the
-              vice-captain's points are doubled.
+              Select a captain and vice-captain for each Gameweek. The
+              captain&apos;s points are doubled, and if the captain doesn&apos;t
+              play, the vice-captain&apos;s points are doubled.
             </p>
           </AccordionContent>
         </AccordionItem>
@@ -136,8 +136,8 @@ const page = () => {
           <AccordionTrigger>Have fun</AccordionTrigger>
           <AccordionContent>
             <p>
-              Enjoy the game, and remember that it's all about having fun and
-              competing with friends.
+              Enjoy the game, and remember that it&apos;s all about having fun
+              and competing with friends.
             </p>
           </AccordionContent>
         </AccordionItem>

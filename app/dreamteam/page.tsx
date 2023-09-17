@@ -136,9 +136,9 @@ const page = async () => {
       <div className="flex flex-row w-full h-full items-center justify-center mt-8">
         <div className="mx-8 basis-1/2">
           <p className="text-xl">
-            Here is your FPL Dream Team. We've calculated current best players
-            in each position for you using statistical analysis and weighted
-            formulas
+            Here is your FPL Dream Team. We&apos;ve calculated current best
+            players in each position for you using statistical analysis and
+            weighted formulas
             <div className="grid grid-cols-2 grid-rows-2 gap-4 p-2">
               <div className="flex flex-col justify-start items-center">
                 <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
