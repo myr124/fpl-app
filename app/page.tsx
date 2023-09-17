@@ -54,7 +54,7 @@ export default function IndexPage() {
             target="_blank"
             rel="noreferrer"
           >
-            Premier League
+            <img src="/epl-premierleague-logo.svg" className="h-6 w-6" />
           </Link>
         </Button>
       </div>

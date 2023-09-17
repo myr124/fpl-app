@@ -22,11 +22,15 @@ export const siteConfig = {
       title: "Dream Team",
       href: "/dreamteam"
     },
+    {
+        title:"Mini Game",
+        href:"/minigame"
+    }
   ],
   links: {
     // twitter: "https://twitter.com/shadcn",
     github: "https://github.com/myr124/fpl-app",
     docs: "https://ui.shadcn.com",
-    premierleague: "https://www.premierleague.com/"
+    premierleague: "https://fantasy.premierleague.com/"
   },
 }
