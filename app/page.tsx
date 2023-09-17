@@ -48,13 +48,13 @@ export default function IndexPage() {
         >
           Premier League
         </Link> */}
-        <Button size="lg">
+        <Button size="icon">
           <Link
             href={siteConfig.links.premierleague}
             target="_blank"
             rel="noreferrer"
           >
-            Premier League
+            <img src="/epl-premierleague-logo.svg" className="h-6 w-6" />
           </Link>
         </Button>
       </div>

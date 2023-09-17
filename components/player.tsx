@@ -23,9 +23,7 @@ const player = ({ player }: Props) => {
             {player.first_name} {player.second_name}
           </a>
         </CardTitle>
-        <CardDescription className="fg-card-mutedfg">
-          {player.news}
-        </CardDescription>
+        <CardDescription>{player.news}</CardDescription>
       </CardHeader>
       <CardContent>
         <div>
