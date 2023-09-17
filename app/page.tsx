@@ -7,13 +7,13 @@ import PlayerNews from "@/components/player-news";
 export default function IndexPage() {
   return (
     <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10">
-      <div className="flex flex-row items-start gap-5">
+      <div className="flex flex-col sm:flex-row items-start gap-5">
         <div className="flex flex-col gap-2">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tighter md:text-5xl">
             What is FPL?
             <br className="hidden sm:inline" />
           </h1>
-          <p className="max-w-[700px] text-xl">
+          <p className="max-w-[700px] text-lg sm:text-xl">
             In Fantasy Premier League (FPL), participants assemble a squad of
             real Premier League players while staying within a predefined
             budget. The objective is to build a team that accumulates the most
@@ -27,7 +27,7 @@ export default function IndexPage() {
             How do we help?
             <br className="hidden sm:inline" />
           </h1>
-          <p className="max-w-[700px] text-xl">
+          <p className="max-w-[700px] text-lg sm:text-xl">
             At FPL Predictor, we are passionate FPL enthusiasts who eat, sleep,
             and breathe football statistics. Our mission is simple: to help you
             dominate your FPL league by providing you with the most accurate,

@@ -9,7 +9,7 @@ export function DefenderRating(player: any): number {
 }
 
 export function GoalkeeperRating(player: any): number {
-    const GER = (0.6* player.clean_sheets) + (0.4 * player.saves);
+    const GER = (0.4* player.clean_sheets) + (0.6 * player.saves);
     return 100*GER/Math.max(player.minutes,180);
 }
 

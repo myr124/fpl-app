@@ -30,15 +30,25 @@ export default async function PlayerInfo({ params }: any) {
     }
   }
   if (!player) return <></>;
-  const position = player.element_type as Position;
+  const playerInfo: any = await (
+    await fetch(`https://fantasy.premierleague.com/api/element-summary/${id}/`)
+  ).json();
+
+  const history: any[] = playerInfo.history.reverse();
+  const nextGame: any = playerInfo.fixtures[0];
+  const nextGameKickoffTiem = new Date(nextGame.kickoff_time);
+
+  const getTeamName = (teamId: number) => {
+    return data.teams.find((team: any) => team.id == teamId).name;
+  };
 
   // switch(position) {
   //   case: "FW"
   // }
 
   return (
-    <div className="p-4">
-      <Card className="flex flex-row h-72 items-start gap-2">
+    <div className="flex flex-col gap-4 p-4">
+      <Card className="flex flex-row h-72 items-start gap-2 p-2">
         <div className="playerImageContainer">
           <img
             className="playerImage"
@@ -97,6 +107,95 @@ export default async function PlayerInfo({ params }: any) {
             <>{MidfielderRating(player).toFixed(2)}</>
           )}
         </div>
+      </Card>
+      <Card className="flex grow justify-center items-center gap-2 p-2">
+        <CardHeader>
+          <CardTitle className="text-bold text-5xl">Next Match</CardTitle>
+          <CardDescription className="text-4xl">
+            {getTeamName(player.team)}{" "}
+            {nextGame.team_h == player.team ? " V " : " @ "}{" "}
+            {getTeamName(
+              nextGame.team_h == player.team ? nextGame.team_a : nextGame.team_h
+            )}
+            <br />
+            {
+              ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+                nextGameKickoffTiem.getDay()
+              ]
+            }
+            ,{" "}
+            {
+              [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ][nextGameKickoffTiem.getMonth()]
+            }{" "}
+            {nextGameKickoffTiem.getDate()}, {nextGameKickoffTiem.getHours()}:
+            {nextGameKickoffTiem.getMinutes().toLocaleString("en-US", {
+              minimumIntegerDigits: 2,
+              useGrouping: false,
+            })}
+          </CardDescription>
+        </CardHeader>
+      </Card>
+      <Card className="flex grow justify-center items-center gap-2 p-2">
+        <CardHeader>
+          <CardTitle className="text-bold text-5xl">Match History</CardTitle>
+          <CardDescription className="text-4xl">
+            {history.map((match, i) => {
+              const kickoff_time = new Date(match.kickoff_time);
+              return (
+                <React.Fragment key={i}>
+                  {getTeamName(player.team)}{" "}
+                  {match.was_home ? "   V   " : "   @   "}{" "}
+                  {getTeamName(match.opponent_team)}
+                  <br />
+                  {
+                    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+                      kickoff_time.getDay()
+                    ]
+                  }
+                  ,{" "}
+                  {
+                    [
+                      "Jan",
+                      "Feb",
+                      "Mar",
+                      "Apr",
+                      "May",
+                      "Jun",
+                      "Jul",
+                      "Aug",
+                      "Sep",
+                      "Oct",
+                      "Nov",
+                      "Dec",
+                    ][kickoff_time.getMonth()]
+                  }{" "}
+                  {kickoff_time.getDate()}, {kickoff_time.getHours()}:
+                  {kickoff_time.getMinutes().toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                    useGrouping: false,
+                  })}
+                  <br />
+                  G: {match.goals_scored} | A: {match.assists}
+                  <br />
+                  <br />
+                </React.Fragment>
+              );
+            })}
+          </CardDescription>
+        </CardHeader>
       </Card>
     </div>
   );

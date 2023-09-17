@@ -139,53 +139,53 @@ const page = async () => {
             Here is your FPL Dream Team. We&apos;ve calculated current best
             players in each position for you using statistical analysis and
             weighted formulas
-            <div className="grid grid-cols-2 grid-rows-2 gap-4 p-2">
-              <div className="flex flex-col justify-start items-center">
-                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
-                  FW:
-                </h1>
-                {forwards.map((forward, i) => (
-                  <Fragment key={i}>
-                    {forward.second_name}
-                    <br />
-                  </Fragment>
-                ))}
-              </div>
-              <div className="flex flex-col justify-start items-center">
-                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
-                  MD:
-                </h1>
-                {midfielders.map((midfielder, i) => (
-                  <Fragment key={i}>
-                    {midfielder.second_name}
-                    <br />
-                  </Fragment>
-                ))}
-              </div>
-              <div className="flex flex-col justify-start items-center">
-                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
-                  DF:
-                </h1>
-                {defenders.map((defender, i) => (
-                  <Fragment key={i}>
-                    {defender.second_name}
-                    <br />
-                  </Fragment>
-                ))}
-              </div>
-              <div className="flex flex-col justify-start items-center">
-                <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
-                  GK:
-                </h1>
-                {goalkeepers.map((goalkeeper, i) => (
-                  <Fragment key={i}>
-                    {goalkeeper.second_name}
-                    <br />
-                  </Fragment>
-                ))}
-              </div>
-            </div>
           </p>
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 p-2">
+            <div className="flex flex-col justify-start items-center">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                FW:
+              </h1>
+              {forwards.map((forward, i) => (
+                <Fragment key={i}>
+                  {forward.second_name}
+                  <br />
+                </Fragment>
+              ))}
+            </div>
+            <div className="flex flex-col justify-start items-center">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                MD:
+              </h1>
+              {midfielders.map((midfielder, i) => (
+                <Fragment key={i}>
+                  {midfielder.second_name}
+                  <br />
+                </Fragment>
+              ))}
+            </div>
+            <div className="flex flex-col justify-start items-center">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                DF:
+              </h1>
+              {defenders.map((defender, i) => (
+                <Fragment key={i}>
+                  {defender.second_name}
+                  <br />
+                </Fragment>
+              ))}
+            </div>
+            <div className="flex flex-col justify-start items-center">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-6xl mt-2">
+                GK:
+              </h1>
+              {goalkeepers.map((goalkeeper, i) => (
+                <Fragment key={i}>
+                  {goalkeeper.second_name}
+                  <br />
+                </Fragment>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="item-middle basis-1/2">
           <div className="pitch-container">
