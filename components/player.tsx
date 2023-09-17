@@ -23,7 +23,9 @@ const player = ({ player }: Props) => {
             {player.first_name} {player.second_name}
           </a>
         </CardTitle>
-        <CardDescription>{player.news}</CardDescription>
+        <CardDescription className="injury-status font-bold">
+          {player.news}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div>

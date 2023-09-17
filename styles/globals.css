@@ -12,11 +12,15 @@
 
 @layer base {
   :root {
-    --background: 313 51% 41%;
-    --foreground: 352 12% 87%;
+    --background: 0 0% 100%;
+    --foreground: 313 50% 40%;
+
+    --header-bg: 313 50% 40%;
+    --header-fg: 0 0% 100%;
+  
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 352 12% 87%;
+    --muted-foreground: 0 0% 100%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
@@ -25,7 +29,7 @@
     --input: 214.3 31.8% 91.4%;
 
     --card: 353, 12%, 87%;
-    --card-foreground: var(--background);
+    --card-foreground: 313 51% 41%;
     --card-news-foreground: 1 80% 71%;
     
 
@@ -49,11 +53,14 @@
   }
 
   .dark {
-    --background: 295 100% 11%;
-    --foreground: 213 31% 91%;
+    --background: 224 71% 4%;
+    --foreground: 0 0% 100%;
+
+    --header-bg: 295 100% 11%;
+    --header-fg: 0 0% 100%;
 
     --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted-foreground: 0 0% 100%;;
 
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
@@ -64,7 +71,9 @@
     --border: 216 34% 17%;
     --input: 216 34% 17%;
 
-    --card: 224 71% 4%;
+    /* --card: 316, 62%, 10%; Card alt color */
+    --card: 295 100% 11%; /*Card same as header*/
+
     --card-foreground: 213 31% 91%;
     --card-news-foreground: 1 80% 71%;
     
@@ -94,6 +103,18 @@
   }
 }
 
+.header-background {
+  background-color: hsl(var(--header-bg));
+  color: hsl(var(--header-fg)); 
+}
+
+.span-background {
+  color: hsl(var(--header-fg)); 
+}
+
+.pl-button {
+  background-color: hsl(var(--foreground));
+}
 
 .pitch-container {
   width: 120em;
@@ -103,6 +124,11 @@
   /* padding: 5em; */
 
 }
+
+.injury-status {
+  color: #d0605e;
+}
+
 
 .pitch-container span {
   display: block;

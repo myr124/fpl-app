@@ -13,7 +13,7 @@ export default function IndexPage() {
             What is FPL?
             <br className="hidden sm:inline" />
           </h1>
-          <p className="max-w-[700px] text-xl text-muted-foreground">
+          <p className="max-w-[700px] text-xl">
             In Fantasy Premier League (FPL), participants assemble a squad of
             real Premier League players while staying within a predefined
             budget. The objective is to build a team that accumulates the most
@@ -27,7 +27,7 @@ export default function IndexPage() {
             How do we help?
             <br className="hidden sm:inline" />
           </h1>
-          <p className="max-w-[700px] text-xl text-muted-foreground">
+          <p className="max-w-[700px] text-xl">
             At FPL Predictor, we are passionate FPL enthusiasts who eat, sleep,
             and breathe football statistics. Our mission is simple: to help you
             dominate your FPL league by providing you with the most accurate,
@@ -48,7 +48,7 @@ export default function IndexPage() {
         >
           Premier League
         </Link> */}
-        <Button size="icon">
+        <Button size="lg" className="pl-button">
           <Link
             href={siteConfig.links.premierleague}
             target="_blank"
