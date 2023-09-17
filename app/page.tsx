@@ -48,7 +48,7 @@ export default function IndexPage() {
         >
           Premier League
         </Link> */}
-        <Button size="lg">
+        <Button size="lg" className="pl-button">
           <Link
             href={siteConfig.links.premierleague}
             target="_blank"
