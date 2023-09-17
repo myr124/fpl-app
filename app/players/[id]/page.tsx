@@ -15,8 +15,6 @@ import {
   MidfielderRating,
 } from "@/lib/fpl";
 
-import RenderLineChart from "@/components/chart";
-
 export default async function PlayerInfo({ params }: any) {
   const { id: _id } = params;
   const id = Number(_id);
